@@ -1,9 +1,17 @@
 
 # Getting Started
 
-## Install Module
+# Installation
 
-clone directory and upload to your WHMCS install
+## 1. Base Install
+
+Installs whmcs_plex to the WHMCS system so that it can be found by WHMCS
+
+
+1. Clone the whmcs_plex repo.
+
+   ```
+   sudo git clone https://github.com/zenjabba/whmcs_plex /var/www/html/modules/servers
 
 ## Getting Your Plex Token
 Navigate to any media item in your library. Using the `Get Info` option and now select View XML. At the end of that URL you will see `X-Plex-Token=` save that value in the module settings and record it for next few steps. 
