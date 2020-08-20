@@ -23,7 +23,7 @@ We now need the ids for your sections. Browse the following URL:
 
 https://plex.tv/api/servers/{MACHINEIDGOESHERE}?X-Plex-Client-Identifier=whmcs_plex&X-Plex-Token={PLEXTOKENGOESHERE}
 
-Here you will see all of your sections for the server you have selected. Inside the `<Server` tag there is a collection of `<Section` tags. You will need the `title` attribute and the `id` attribute. The JSON you are building will look like this:
+Here you will see all of your sections for the server you have selected. Inside the `<Server>` tag there is a collection of `<Section>` tags. You will need the `title` attribute and the `id` attribute. The JSON you are building will look like this:
 
 `{
   "Title":id,
