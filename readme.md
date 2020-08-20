@@ -6,7 +6,7 @@
 clone directory and upload to your WHMCS install
 
 ## Getting Your Plex Token
-Navigate to any media item in your library. Using the `Get Info` option and now select View XML. At the end of that URL you will see X-Plex-Token= save that value in the module settings and record it for next few steps. 
+Navigate to any media item in your library. Using the `Get Info` option and now select View XML. At the end of that URL you will see `X-Plex-Token=` save that value in the module settings and record it for next few steps. 
 
 [Detailed steps here](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/)
 
