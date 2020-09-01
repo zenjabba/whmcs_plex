@@ -123,6 +123,13 @@ return [
             "Size" => "512", # Defines the Field Width
             "Description" => "<br>The Plex Machine ID of your Plex Server",
             "Default" => "",
+        ],
+        "defaultlibraryid" => [
+            "FriendlyName" => "Default Lib IDs",
+            "Type" => "text", # Text Box
+            "Size" => "512", # Defines the Field Width
+            "Description" => "<br>The IDs of the Library to Add A New  User To",
+            "Default" => "",
         ]
     ];
 }
@@ -161,6 +168,11 @@ function whmcs_plex_CreateAccount(array $params)
 					//array_push($lib,$libid); 
 		
 		} 
+		
+		if(strlen($libs) <= 1)
+		{
+				$libs = $params["configoption6"];
+		}
 		logModuleCall( 'whmcs_plex', __FUNCTION__, $libs, "Adding User " . $params["customfields"]["Plex Username "] );
 
 
@@ -235,6 +247,10 @@ function whmcs_plex_ChangePackage(array $params)
 					//array_push($lib,$libid); 
 		
 		} 
+		if(strlen($libs) <= 1)
+		{
+				$libs = $params["configoption6"];
+		}
 		logModuleCall( 'whmcs_plex', __FUNCTION__, $libs, "Updating User " . $params["customfields"]["Plex Username "] );
 
 
