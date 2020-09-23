@@ -173,12 +173,12 @@ function whmcs_plex_CreateAccount(array $params)
 		{
 				$libs = $params["configoption6"];
 		}
-		logModuleCall( 'whmcs_plex', __FUNCTION__, $libs, "Adding User " . $params["customfields"]["Plex Username "] );
+		logModuleCall( 'whmcs_plex', __FUNCTION__, $libs, "Adding User " . $params["customfields"]["Plex Username"] );
 
 
-       	$results =  add_plex_user($params["configoption1"], $params["configoption5"],$params["customfields"]["Plex Username "], $libs);
+       	$results =  add_plex_user($params["configoption1"], $params["configoption5"],$params["customfields"]["Plex Username"], $libs);
 
-        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Adding User " . $params["customfields"]["Plex Username "] );
+        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Adding User " . $params["customfields"]["Plex Username"] );
 
 
         // ```
@@ -251,12 +251,12 @@ function whmcs_plex_ChangePackage(array $params)
 		{
 				$libs = $params["configoption6"];
 		}
-		logModuleCall( 'whmcs_plex', __FUNCTION__, $libs, "Updating User " . $params["customfields"]["Plex Username "] );
+		logModuleCall( 'whmcs_plex', __FUNCTION__, $libs, "Updating User " . $params["customfields"]["Plex Username"] );
 
 
-       	$results =  update_plex_user($params["configoption1"],$params["configoption2"], $params["configoption5"],$params["customfields"]["Plex Username "], $libs);
+       	$results =  update_plex_user($params["configoption1"],$params["configoption2"], $params["configoption5"],$params["customfields"]["Plex Username"], $libs);
 
-        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Updating User " . $params["customfields"]["Plex Username "] );
+        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Updating User " . $params["customfields"]["Plex Username"] );
 
 
         // ```
@@ -293,9 +293,9 @@ function whmcs_plex_SuspendAccount(array $params)
 {
     try {
     //($token, $serverid, $machineid ,$login, $libs)
-    	$results = suspend_plex_user($params["configoption1"],$params["configoption2"],$params["configoption5"] ,$params["customfields"]["Plex Username "], $params["configoption4"]);
+    	$results = suspend_plex_user($params["configoption1"],$params["configoption2"],$params["configoption5"] ,$params["customfields"]["Plex Username"], $params["configoption4"]);
         
-        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Suspending User " . $params["customfields"]["Plex Username "] );
+        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Suspending User " . $params["customfields"]["Plex Username"] );
 
     } catch (Exception $e) {
         // Record the error in WHMCS's module log.
@@ -360,12 +360,12 @@ function whmcs_plex_UnsuspendAccount(array $params)
 					//array_push($lib,$libid); 
 		
 		} 
-		logModuleCall( 'whmcs_plex', __FUNCTION__, $libs, "Un-Suspending User " . $params["customfields"]["Plex Username "] );
+		logModuleCall( 'whmcs_plex', __FUNCTION__, $libs, "Un-Suspending User " . $params["customfields"]["Plex Username"] );
 
 
-       	$results =  update_plex_user($params["configoption1"],$params["configoption2"],$params["configoption5"],$params["customfields"]["Plex Username "], $libs);
+       	$results =  update_plex_user($params["configoption1"],$params["configoption2"],$params["configoption5"],$params["customfields"]["Plex Username"], $libs);
 
-        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Un-Suspending User " . $params["customfields"]["Plex Username "] );
+        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Un-Suspending User " . $params["customfields"]["Plex Username"] );
 
 
         // ```
@@ -401,9 +401,9 @@ function whmcs_plex_TerminateAccount(array $params)
 {
     try {
 
-       $results =  delete_plex_user($params["configoption1"], $params["customfields"]["Plex Username "] );
+       $results =  delete_plex_user($params["configoption1"], $params["customfields"]["Plex Username"] );
 
-        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Terminate User " . $params["customfields"]["Plex Username "] );
+        logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Terminate User " . $params["customfields"]["Plex Username"] );
 
 
     
