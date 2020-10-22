@@ -550,7 +550,7 @@ function delete_plex_user($token, $login){
 		$link_id = false;
 		if (strpos($list_xml, $login) !== false)
 		{
-$split = 'username="dummy"';
+$split = 'email="dummy"';
 $split = str_replace('dummy',$login,$split);
 			$link_id = explode($split, $list_xml)[0];
 $link_id = explode('<user id="', $link_id);
