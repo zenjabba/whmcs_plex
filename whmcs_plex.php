@@ -175,8 +175,18 @@ function whmcs_plex_CreateAccount(array $params)
 		}
 		logModuleCall( 'whmcs_plex', __FUNCTION__, $libs, "Adding User " . $params["customfields"]["Plex Username"] );
 
+		$doesExist = does_plex_user_exist($params["configoption1"],$params["customfields"]["Plex Username"]);
+		
+		if($doesExist){
+		       	$results =  update_plex_user($params["configoption1"],$params["configoption2"],$params["configoption5"],$params["customfields"]["Plex Username"], $libs);
 
-       	$results =  add_plex_user($params["configoption1"], $params["configoption5"],$params["customfields"]["Plex Username"], $libs);
+		}else{
+		       	$results =  add_plex_user($params["configoption1"], $params["configoption5"],$params["customfields"]["Plex Username"], $libs);
+
+		}
+
+       	
+       
 
         logModuleCall( 'whmcs_plex', __FUNCTION__, $results, "Adding User " . $params["customfields"]["Plex Username"] );
 
@@ -448,7 +458,7 @@ function update_plex_user($token,$serverid, $machineid ,$login, $libs) {
 		$link_id = false;
 		if (strpos($list_xml, $login) !== false)
 		{
-			$link_id = explode('username="'.$login.'"', $list_xml)[1];
+			$link_id = explode('email="'.$login.'"', $list_xml)[1];
 			$link_id = explode('</user>', $link_id)[0];
 			if (strpos($link_id, '<server') !== false)
 			{
@@ -541,6 +551,28 @@ function suspend_plex_user($token, $serverid, $machineid ,$login, $libs){
 
 		$result = update_plex_user($token, $serverid, $machineid, $login, $libs);
 		return $result;
+}
+
+function does_plex_user_exist($token, $login){
+
+       $list_xml = trim(strtolower(@file_get_contents('https://plex.tv/api/users?X-Plex-Token='.$token)));
+
+		$link_id = false;
+		if (strpos($list_xml, $login) !== false)
+		{
+$split = 'email="dummy"';
+$split = str_replace('dummy',$login,$split);
+			$link_id = explode($split, $list_xml)[0];
+$link_id = explode('<user id="', $link_id);
+$link_id = $link_id[count($link_id)-1];
+$link_id = explode(' title="', $link_id)[0];
+$link_id = str_replace('"','',$link_id);
+return true;
+		
+		}else{
+		return false;
+		}
+
 }
 
 function delete_plex_user($token, $login){
