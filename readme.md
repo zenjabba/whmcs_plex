@@ -41,7 +41,7 @@ Here you will see all of your sections for the server you have selected. Inside 
 until you have all sections in your library mapped. Paste this JSON into the module settings. You will also grab the `id` of the library that you intend to use to let users know that they are suspended and put this into the module settings as well.
 
 
-
+Please Note: Create a folder in "modules/servers" and clone the repo into it. Edit the whmcs_plex.php file, change the "whmcs_plex" function to the name of your folder. Also, rename the whmcs_plex.php file to match the folder name.
 
 
 
